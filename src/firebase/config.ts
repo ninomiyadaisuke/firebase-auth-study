@@ -12,13 +12,8 @@ export const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-export const getFirebaseApp = (): FirebaseApp | undefined => {
-  // 今回使用するFirebaseのアプリケーション（または初期化したもの）を返す
-  if (typeof window === 'undefined') return; // バックエンドで実行されないようにする
-  return getApps()[0] || initializeApp(firebaseConfig);
-};
+const app = initializeApp(firebaseConfig);
 
-export const getFirebaseAuth = (): FirebaseAuth => {
-  // Firebaseのアプリケーションに紐ずく認証のオブジェクト（Authオブジェクト）を返す
-  return getAuth(getFirebaseApp());
-};
+const auth = getAuth(app);
+
+export { auth };
