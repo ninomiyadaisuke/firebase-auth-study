@@ -4,7 +4,7 @@ import { ReactElement } from 'react';
 import Layout from '@/layout/Layout';
 
 const Home: NextPageWithLayout = () => {
-  return <div>test</div>;
+  return <div>top</div>;
 };
 
 export const baseLayout = (page: ReactElement) => <Layout>{page}</Layout>;
