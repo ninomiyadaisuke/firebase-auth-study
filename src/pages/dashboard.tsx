@@ -19,7 +19,7 @@ const DashboardPage: NextPage<{ email: string }> = ({ email }) => {
   return (
     <Wrapper>
       <Title>Dashboard Pages</Title>
-      <EmailText>Email</EmailText>
+      <EmailText>Email:{email}</EmailText>
       <Btn onClick={onLogout}>Logout</Btn>
     </Wrapper>
   );
