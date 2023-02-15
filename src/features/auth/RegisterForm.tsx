@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { z } from 'zod';
 
@@ -22,9 +23,13 @@ const registerSchema = z.object({
 type FormValues = z.infer<typeof registerSchema>;
 
 const RegisterForm = () => {
+  const router = useRouter();
   return (
     <Form<FormValues>
-      onSubmit={async (values) => signup(values.email, values.password)}
+      onSubmit={async (values) => {
+        signup(values.email, values.password);
+        router.push('/dashboard');
+      }}
       options={{ defaultValues: initialState }}
       schema={registerSchema}
     >
