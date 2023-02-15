@@ -1,0 +1,56 @@
+$main: #094067;
+$sub: #ef4565;
+
+$red-button-hover: #de3d5c;
+$light-blue-button-hover: #5ba7e2;
+
+$text-main: #000000;
+$text-sub: #2b4b62;
+$text-white: #fffffe;
+$text-placeholder: #e5e5e5;
+
+$dropdown-hover: #e5e5e5;
+
+$blue: #1766c1;
+$dark-blue: #366a8e;
+$light-blue: #3da9fc;
+
+$bg-white: #fffffe;
+$bg-blue: #d8eefe;
+
+$dark-gray: #707070;
+$light-grey: #cecece;
+
+$breakpoints: (
+  'xxs': 'screen and (min-width: 440px)',
+  'xs': 'screen and (min-width: 560px)',
+  'sm': 'screen and (min-width: 680px)',
+  'md': 'screen and (min-width: 800px)',
+  'lg': 'screen and (min-width: 1024px)',
+  'xl': 'screen and (min-width: 1600px)',
+  'safari': 'screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0)',
+) !default;
+
+// 初期値はlg(tablet screen size)
+@mixin mq($breakpoint: lg) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// プレイスホルダーの色指定
+@mixin placeholder($color) {
+  &::placeholder {
+    color: $color !important;
+  }
+
+  // IE
+  &:-ms-input-placeholder {
+    color: $color !important;
+  }
+
+  // Edge
+  &::-ms-input-placeholder {
+    color: $color !important;
+  }
+}

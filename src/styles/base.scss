@@ -1,0 +1,219 @@
+@import './variables.scss';
+
+html {
+  font-size: 16px;
+}
+
+body {
+  color: $main;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  font-feature-settings: 'palt';
+  letter-spacing: 0.1em;
+  margin: 0;
+  padding: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+img {
+  border: 0;
+}
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+pre {
+  overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+html input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input {
+  line-height: normal;
+  &::placeholder {
+    color: $text-placeholder;
+    font-size: 16px;
+  }
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type='search'] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box;
+}
+
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+blockquote,
+dd,
+div,
+dl,
+dt,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+ol,
+p,
+pre,
+td,
+th,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+}
+
+p {
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  line-height: 1.7;
+}
+
+a {
+  color: $blue;
+  transition: color 0.35s ease;
+  &:hover {
+    color: $blue;
+  }
+  &:visited {
+    color: $blue;
+  }
+}
+
+h1,
+li {
+  font-size: 24px;
+}
+li {
+  list-style:none
+}
+
+label,
+h2,
+h3 {
+  font-size: 16px;
+}
+
+@include mq('md') {
+  p,
+  li {
+    font-size: 24px;
+  }
+  label,
+  h3 {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 32px;
+  }
+  h1 {
+    font-size: 40px;
+  }
+  input {
+    &::placeholder {
+      color: $text-placeholder;
+      font-size: 24px;
+    }
+  }
+}
