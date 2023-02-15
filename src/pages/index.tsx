@@ -7,7 +7,7 @@ const Home: NextPageWithLayout = () => {
   return <div>top</div>;
 };
 
-export const baseLayout = (page: ReactElement) => <Layout>{page}</Layout>;
+export const baseLayout = (page: ReactElement) => <Layout title="Top page">{page}</Layout>;
 
 Home.getLayout = baseLayout;
 

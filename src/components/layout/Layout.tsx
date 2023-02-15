@@ -4,13 +4,14 @@ import styled from 'styled-components';
 
 type Props = {
   children: ReactNode;
+  title: string;
 };
 
-const Layout: FC<Props> = ({ children }) => {
+const Layout: FC<Props> = ({ children, title }) => {
   return (
     <>
       <Header>
-        <Title>Top Page</Title>
+        <Title>{title}</Title>
         <Links>
           <Link href={'/'} passHref legacyBehavior>
             <HeaderLink>Top</HeaderLink>

@@ -1,12 +1,14 @@
-import type { GetServerSideProps, NextPage } from 'next';
+import type { GetServerSideProps, NextPageWithLayout } from 'next';
 import { useRouter } from 'next/router';
 import nookies from 'nookies';
+import { ReactElement } from 'react';
 import styled from 'styled-components';
 
+import Layout from '@/components/layout/Layout';
 import { firebaseAdmin } from '@/firebase/firebaseAdmin';
 import { logout } from '@/firebase/utils';
 
-const DashboardPage: NextPage<{ email: string }> = ({ email }) => {
+const DashboardPage: NextPageWithLayout<{ email: string }> = ({ email }) => {
   const router = useRouter();
 
   const onLogout = async () => {
@@ -79,5 +81,9 @@ const Btn = styled.button`
   padding: 10px;
   font-weight: bold;
 `;
+
+export const baseLayout = (page: ReactElement) => <Layout title="Dashboard page">{page}</Layout>;
+
+DashboardPage.getLayout = baseLayout;
 
 export default DashboardPage;
