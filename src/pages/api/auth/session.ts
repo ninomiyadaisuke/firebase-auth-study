@@ -1,6 +1,6 @@
-import type { NextApiHandler, NextApiRequest as Req, NextApiResponse as Res } from 'next';
+import type { NextApiHandler } from 'next';
 
-import { assignSession, logIn,signUp } from '@/firebase/utils';
+import { assignSession, logIn, signUp } from '@/firebase/utils';
 
 const handler: NextApiHandler = async (req, res) => {
   if (req.method !== 'POST') return res.status(404).send('Not Found');
