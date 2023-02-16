@@ -1,6 +1,4 @@
-import type { FirebaseApp } from 'firebase/app';
-import { getApps, initializeApp } from 'firebase/app';
-import type { Auth as FirebaseAuth } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 export const firebaseConfig = {
