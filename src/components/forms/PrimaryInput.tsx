@@ -13,7 +13,7 @@ const PrimaryInput: FC<Props> = (props) => {
   const { type, registration, placeholder } = props;
   return (
     <Wrapper>
-      <Input type={type} placeholder={placeholder} {...registration} />
+      <Input type={type} placeholder={placeholder} {...registration} autoComplete="on" />
     </Wrapper>
   );
 };

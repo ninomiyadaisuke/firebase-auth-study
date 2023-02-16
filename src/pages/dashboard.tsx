@@ -1,14 +1,12 @@
-import type { GetServerSideProps, NextPageWithLayout } from 'next';
+import type { NextPageWithLayout } from 'next';
 import { useRouter } from 'next/router';
-import nookies from 'nookies';
 import { ReactElement } from 'react';
 import styled from 'styled-components';
 
 import Layout from '@/components/layout/Layout';
-import { firebaseAdmin } from '@/firebase/firebaseAdmin';
 import { logout } from '@/firebase/utils';
 
-const DashboardPage: NextPageWithLayout<{ email: string }> = ({ email }) => {
+const DashboardPage: NextPageWithLayout = () => {
   const router = useRouter();
 
   const onLogout = async () => {
@@ -21,34 +19,10 @@ const DashboardPage: NextPageWithLayout<{ email: string }> = ({ email }) => {
   return (
     <Wrapper>
       <Title>Dashboard Pages</Title>
-      <EmailText>Email:{email}</EmailText>
+      <EmailText>Email:</EmailText>
       <Btn onClick={onLogout}>Logout</Btn>
     </Wrapper>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const cookies = nookies.get(ctx);
-  const session = cookies.session || '';
-
-  const user = await firebaseAdmin
-    .auth()
-    .verifySessionCookie(session, true)
-    .catch(() => null);
-
-  if (!user) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
-  return {
-    props: {
-      email: user.email,
-    },
-  };
 };
 
 const Wrapper = styled.div`
