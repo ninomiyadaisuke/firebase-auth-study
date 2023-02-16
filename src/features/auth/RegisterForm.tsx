@@ -24,15 +24,16 @@ type FormValues = z.infer<typeof registerSchema>;
 
 const RegisterForm = () => {
   const router = useRouter();
+  const login = async (values: FormValues) => {
+    await fetch('/api/auth/session', {
+      method: 'POST',
+      body: JSON.stringify({ ...values, authentication: 'signup' }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    router.push('/dashboard');
+  };
   return (
-    <Form<FormValues>
-      onSubmit={async (values) => {
-        signup(values.email, values.password);
-        router.push('/dashboard');
-      }}
-      options={{ defaultValues: initialState }}
-      schema={registerSchema}
-    >
+    <Form<FormValues> onSubmit={login} options={{ defaultValues: initialState }} schema={registerSchema}>
       {({ register, formState: { errors } }) => (
         <Wrapper>
           <PrimaryInput
