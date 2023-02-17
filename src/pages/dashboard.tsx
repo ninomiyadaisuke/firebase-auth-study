@@ -26,7 +26,7 @@ const DashboardPage: NextPageWithLayout = () => {
 };
 
 const Wrapper = styled.div`
-  width: 600px;
+  width: 80%;
   padding: 15px;
   border-radius: 5px;
   background-color: white;
