@@ -5,7 +5,6 @@ import { z } from 'zod';
 import PrimaryButton from '@/components/button/PrimaryButton';
 import Form from '@/components/forms/Form';
 import PrimaryInput from '@/components/forms/PrimaryInput';
-import { login } from '@/firebase/utils';
 
 const initialState = {
   email: '',
