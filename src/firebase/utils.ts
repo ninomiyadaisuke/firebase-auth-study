@@ -19,7 +19,7 @@ export const assignSession = async (res: NextApiResponse, idToken: string, expir
 };
 
 export const signUp = async (email: string, password: string) => {
-  const apiKey = process.env.FIREBASE_API_KEY;
+  const apiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
   const body = JSON.stringify({ email, password, returnSecureToken: true });
   return await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`, {
     method: 'POST',
@@ -31,7 +31,7 @@ export const signUp = async (email: string, password: string) => {
 };
 
 export const logIn = async (email: string, password: string) => {
-  const apiKey = process.env.FIREBASE_API_KEY;
+  const apiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
   const body = JSON.stringify({ email, password, returnSecureToken: true });
   return await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`, {
     method: 'POST',
