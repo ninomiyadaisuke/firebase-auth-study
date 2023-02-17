@@ -7,7 +7,7 @@ export const logout = async () => {
 };
 
 // 全てバックエンドのみで認証
-const apiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
+const apiKey = process.env.FIREBASE_API_KEY;
 
 export const assignSession = (res: NextApiResponse, idToken: string) => {
   const SESSION_KEY = 'session';
