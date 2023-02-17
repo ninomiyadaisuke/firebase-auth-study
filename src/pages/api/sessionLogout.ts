@@ -1,5 +1,5 @@
 import type { NextApiRequest as Req, NextApiResponse as Res } from 'next';
-import { destroyCookie,parseCookies } from 'nookies';
+import { destroyCookie, parseCookies } from 'nookies';
 
 import { firebaseAdmin } from '@/firebase/firebaseAdmin';
 

@@ -9,10 +9,10 @@ export const logout = async () => {
 // 全てバックエンドのみで認証
 const apiKey = process.env.FIREBASE_API_KEY;
 
-export const assignSession = (res: NextApiResponse, idToken: string) => {
+export const assignSession = async (res: NextApiResponse, idToken: string, expiresIn: number) => {
   const SESSION_KEY = 'session';
   const COOKIE_OPTIONS = {
-    maxAge: 60 * 60 * 24, // 1日
+    maxAge: expiresIn,
     httpOnly: true,
     secure: true,
     path: '/',
