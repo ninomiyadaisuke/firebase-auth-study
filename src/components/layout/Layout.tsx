@@ -16,7 +16,9 @@ const Layout: FC<Props> = ({ children, title }) => {
           <Link href={'/'}>Top</Link>
           <Link href={'/login'}>Login</Link>
           <Link href={'/register'}>Signup</Link>
-          <Link href={'/dashboard'}>Dashboard</Link>
+          <Link as="/dashboard" href={'/dashboard'}>
+            Dashboard
+          </Link>
         </Links>
       </Header>
       {children}
