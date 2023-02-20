@@ -13,18 +13,10 @@ const Layout: FC<Props> = ({ children, title }) => {
       <Header>
         <Title>{title}</Title>
         <Links>
-          <Link href={'/'} passHref legacyBehavior>
-            <HeaderLink>Top</HeaderLink>
-          </Link>
-          <Link href={'/login'} passHref legacyBehavior>
-            <HeaderLink>Login</HeaderLink>
-          </Link>
-          <Link href={'/register'} passHref legacyBehavior>
-            <HeaderLink>Signup</HeaderLink>
-          </Link>
-          <Link href={'/dashboard'} passHref legacyBehavior>
-            <HeaderLink>Dashboard</HeaderLink>
-          </Link>
+          <Link href={'/'}>Top</Link>
+          <Link href={'/login'}>Login</Link>
+          <Link href={'/register'}>Signup</Link>
+          <Link href={'/dashboard'}>Dashboard</Link>
         </Links>
       </Header>
       {children}
