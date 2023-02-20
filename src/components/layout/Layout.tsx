@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { parseCookies } from 'nookies';
 import { FC, ReactNode } from 'react';
 import styled from 'styled-components';
 
@@ -8,7 +9,7 @@ type Props = {
 };
 
 const Layout: FC<Props> = ({ children, title }) => {
-  const isAuthed = false;
+  const isAuthed = true;
   const path = isAuthed ? '/dashboard' : '/login';
   return (
     <>
@@ -18,9 +19,7 @@ const Layout: FC<Props> = ({ children, title }) => {
           <Link href={'/'}>Top</Link>
           <Link href={'/login'}>Login</Link>
           <Link href={'/register'}>Signup</Link>
-          <Link as="/dashboard" href={path}>
-            Dashboard
-          </Link>
+          <Link href={path}>Dashboard</Link>
         </Links>
       </Header>
       {children}
