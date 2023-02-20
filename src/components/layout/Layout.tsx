@@ -8,6 +8,8 @@ type Props = {
 };
 
 const Layout: FC<Props> = ({ children, title }) => {
+  const isAuthed = false;
+  const path = isAuthed ? '/dashboard' : '/login';
   return (
     <>
       <Header>
@@ -16,7 +18,7 @@ const Layout: FC<Props> = ({ children, title }) => {
           <Link href={'/'}>Top</Link>
           <Link href={'/login'}>Login</Link>
           <Link href={'/register'}>Signup</Link>
-          <Link as="/dashboard" href={'/dashboard'}>
+          <Link as="/dashboard" href={path}>
             Dashboard
           </Link>
         </Links>

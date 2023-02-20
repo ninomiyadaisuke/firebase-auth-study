@@ -2,17 +2,15 @@ import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 export function middleware(req: NextRequest) {
-  const cookie = req.cookies.get('session')?.name;
-
-  if (req.nextUrl.pathname.startsWith('/dashboard')) {
+  const nextUrl = req.nextUrl;
+  const cookie = req.cookies.get('session')?.value;
+  if (nextUrl.pathname === '/dashboard') {
     if (!cookie) {
-      return NextResponse.redirect(new URL('/login', req.url));
+      return NextResponse.rewrite(new URL('/dashboard', req.url));
+    } else {
+      return NextResponse.rewrite(new URL('/login', req.url));
     }
   }
-  return new NextResponse(JSON.stringify({ success: true, message: `${cookie}` }), {
-    status: 200,
-    headers: { 'content-type': 'application/json' },
-  });
 }
 
 export const config = {
