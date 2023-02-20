@@ -9,7 +9,10 @@ export function middleware(req: NextRequest) {
       return NextResponse.redirect(new URL('/login', req.url));
     }
   }
-  // return NextResponse.next();
+  return new NextResponse(JSON.stringify({ success: true, message: `${cookie}` }), {
+    status: 200,
+    headers: { 'content-type': 'application/json' },
+  });
 }
 
 export const config = {
