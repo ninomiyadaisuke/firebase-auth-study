@@ -8,7 +8,7 @@ import Layout from '@/components/layout/Layout';
 import { firebaseAdmin } from '@/firebase/firebaseAdmin';
 import { logout } from '@/firebase/utils';
 
-const DashboardPage: NextPageWithLayout<{ email: string }> = ({ email }) => {
+const DashboardPage: NextPageWithLayout<{ user: { email: string; uid: string } }> = ({ user }) => {
   const router = useRouter();
 
   const onLogout = async () => {
@@ -21,46 +21,12 @@ const DashboardPage: NextPageWithLayout<{ email: string }> = ({ email }) => {
   return (
     <Wrapper>
       <Title>Dashboard Pages</Title>
-      <EmailText>Email:{email}</EmailText>
+      <Text>Email:{user.email}</Text>
+      <Text>Uid:{user.uid}</Text>
       <Btn onClick={onLogout}>Logout</Btn>
     </Wrapper>
   );
 };
-
-const Wrapper = styled.div`
-  width: 80%;
-  padding: 15px;
-  border-radius: 5px;
-  background-color: white;
-  margin: 40px auto;
-`;
-
-const Title = styled.h2`
-  font-size: 25px;
-  color: #384459;
-  margin-top: 0;
-  margin-bottom: 20px;
-`;
-
-const EmailText = styled.p`
-  color: #384459;
-  font-size: 18px;
-`;
-
-const Btn = styled.button`
-  margin-top: 15px;
-  border: 0;
-  background-color: #fb3c3c;
-  color: white;
-  border-radius: 5px;
-  width: 100%;
-  padding: 10px;
-  font-weight: bold;
-`;
-
-export const baseLayout = (page: ReactElement) => <Layout title="Dashboard page">{page}</Layout>;
-
-DashboardPage.getLayout = baseLayout;
 
 export default DashboardPage;
 
@@ -80,5 +46,40 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       },
     };
   }
-  return { props: { email: user.email } };
+  return { props: { user: { email: user.email, uid: user.uid } } };
 };
+
+const Wrapper = styled.div`
+  width: 80%;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: white;
+  margin: 40px auto;
+`;
+
+const Title = styled.h2`
+  font-size: 25px;
+  color: #384459;
+  margin-top: 0;
+  margin-bottom: 20px;
+`;
+
+const Text = styled.p`
+  color: #384459;
+  font-size: 18px;
+`;
+
+const Btn = styled.button`
+  margin-top: 15px;
+  border: 0;
+  background-color: #fb3c3c;
+  color: white;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+`;
+
+export const baseLayout = (page: ReactElement) => <Layout title="Dashboard page">{page}</Layout>;
+
+DashboardPage.getLayout = baseLayout;
