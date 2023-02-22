@@ -29,7 +29,9 @@ const handler: NextApiHandler = async (req, res) => {
       throw new Error('認証エラー');
     }
     const { idToken } = await response.json();
-    await assignSession(res, idToken, expiresIn);
+    const sessionCookie = await auth.createSessionCookie(idToken, { expiresIn });
+
+    await assignSession(res, sessionCookie, expiresIn);
     return res.send(JSON.stringify({ status: 'success' }));
   }
 };
