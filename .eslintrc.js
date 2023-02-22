@@ -18,7 +18,7 @@ module.exports = {
     'react/react-in-jsx-scope': 'off', // next.js does not require react in most components
     'react/prop-types': 'off', // as long as TS strict mode is off this is not required
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx', '.js', '.jsx'] }],
-    // 'no-console': 'error', // no console statements allowed
+    'no-console': 'error', // no console statements allowed
     'prettier/prettier': 'off', // don't show prettier errors as it will be fixed when saved anyway
   },
   settings: {
