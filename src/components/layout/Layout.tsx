@@ -9,17 +9,23 @@ type Props = {
 };
 
 const Layout: FC<Props> = ({ children, title }) => {
-  const isAuthed = true;
-  const path = isAuthed ? '/dashboard' : '/login';
   return (
     <>
       <Header>
         <Title>{title}</Title>
         <Links>
-          <Link href={'/'}>Top</Link>
-          <Link href={'/login'}>Login</Link>
-          <Link href={'/register'}>Signup</Link>
-          <Link href={path}>Dashboard</Link>
+          <Link href={'/'} legacyBehavior>
+            Top
+          </Link>
+          <Link href={'/login'} legacyBehavior>
+            Login
+          </Link>
+          <Link href={'/register'} legacyBehavior>
+            Signup
+          </Link>
+          <Link as="/dashboard" href={'/dashboard'} prefetch={false} legacyBehavior>
+            Dashboard
+          </Link>
         </Links>
       </Header>
       {children}
